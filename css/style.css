@@ -1,0 +1,43 @@
+
+html,
+body { 
+  height: 100%; 
+  margin: 0; 
+  padding: 0;
+  
+  
+   
+}
+ a{color:#ffffff;}
+.container{
+  height: 90%;
+
+}
+body { 
+  background: url(ls.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+}
+
+
+#map {
+
+
+height: 70%;
+  
+}
+
+/* using @ media for the responsiveness */
+@media screen and (min-width: 320px) {
+  nav {
+    float: right;
+    width: 35%;
+  }
+
+  #map {
+    width: 100%;
+  }
+}

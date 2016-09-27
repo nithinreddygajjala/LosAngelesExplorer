@@ -1,0 +1,75 @@
+
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Neighborhood Map Project</title>
+
+    
+    
+    </head>
+    <link rel="stylesheet" href="css/style.css">
+<body >
+    <!-- using CDN for Twitter Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+        <!-- implementing two-way binding using the knockout.js-->
+    <input  type="text" data-bind="textInput:input"  placeholder="ENTER THE PLACE....">
+     
+    <div data-bind="foreach:search">
+        <div id ="font" onclick ="fun()" data-bind="text:name,click:$root.locationClicked">
+    
+   
+   
+   </div>
+</div>
+
+ <div id="map"></div>
+
+</div>
+<div class="col-md-3">
+    <b><h3>NewYork Times Articles</h3></b>
+
+
+
+
+<div id="nyt"><div id="t" >Click on the Location to get the NYT links</div> </div>
+<b><h3>Wikipedia Article</h3></b>
+<div id="wiki"><div id="v"> Click on the location to get Wikipedia article</div></div>
+</div>
+</div>
+</div>
+<script src="js/libs/knockout-3.4.0.min.js"></script>
+<script src="js/script.js"></script>
+<script>
+        // this function is defined to remove the DOM elements from the SPA
+        function fun()
+        {
+            $( "#t" ).empty();
+            $( "#v" ).empty();
+        }
+
+        function initializeMap() {
+            var map;
+            // creates a new map instance
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: 34.0522, lng: -118.2437},
+                zoom: 9
+            });
+           
+            console.log(" initMAp invoked");
+            // applying the binding to the moel data
+            ko.applyBindings(new getModel(map));
+        }
+   
+    </script>
+    
+    <script src="js/libs/jquery-1.12.0.min.js"></script>
+     <script async defer onerror="errors()" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYGwBRhm3aqo9ITnfIfnUagm-vULkOdLo&callback=initializeMap"></script> 
+     </div>
+</body>
+</html>
